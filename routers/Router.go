@@ -70,4 +70,14 @@ func init() {
   beego.InsertFilter("/permission/delete/:id([0-9]+)", beego.BeforeRouter, filters.HasPermission)
   beego.Router("/permission/delete/:id([0-9]+)", &controllers.PermissionController{}, "GET:Delete")
 
+  beego.InsertFilter("/section/list", beego.BeforeRouter, filters.HasPermission)
+  beego.Router("/section/list", &controllers.SectionController{}, "GET:List")
+  beego.InsertFilter("/section/add", beego.BeforeRouter, filters.HasPermission)
+  beego.Router("/section/add", &controllers.SectionController{}, "GET:Add")
+  beego.Router("/section/add", &controllers.SectionController{}, "Post:Save")
+  beego.InsertFilter("/section/edit/:id([0-9]+)", beego.BeforeRouter, filters.HasPermission)
+  beego.Router("/section/edit/:id([0-9]+)", &controllers.SectionController{}, "GET:Edit")
+  beego.Router("/section/edit/:id([0-9]+)", &controllers.SectionController{}, "Post:Update")
+  beego.InsertFilter("/section/delete/:id([0-9]+)", beego.BeforeRouter, filters.HasPermission)
+  beego.Router("/section/delete/:id([0-9]+)", &controllers.SectionController{}, "GET:Delete")
 }

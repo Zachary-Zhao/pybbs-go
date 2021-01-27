@@ -5,17 +5,13 @@ import (
   "github.com/astaxie/beego"
   "github.com/astaxie/beego/orm"
   "pybbs-go/models"
-  _ "github.com/go-sql-driver/mysql"
+  _ "github.com/mattn/go-sqlite3"
   _ "pybbs-go/utils"
   _ "pybbs-go/templates"
 )
 
 func init() {
-  url := beego.AppConfig.String("jdbc.url")
-  port := beego.AppConfig.String("jdbc.port")
-  username := beego.AppConfig.String("jdbc.username")
-  password := beego.AppConfig.String("jdbc.password")
-  orm.RegisterDataBase("default", "mysql", username+":"+password+"@tcp("+url+":"+port+")/pybbs-go?charset=utf8&parseTime=true&charset=utf8&loc=Asia%2FShanghai", 30)
+  orm.RegisterDataBase("default", "sqlite3", "data.db")
   orm.RegisterModel(
     new(models.User),
     new(models.Topic),

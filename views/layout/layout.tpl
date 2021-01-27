@@ -48,6 +48,7 @@
               {{if haspermission .UserInfo.Id "user:list"}}<li><a href="/user/list">用户管理</a></li>{{end}}
               {{if haspermission .UserInfo.Id "role:list"}}<li><a href="/role/list">角色管理</a></li>{{end}}
               {{if haspermission .UserInfo.Id "permission:list"}}<li><a href="/permission/list">权限管理</a></li>{{end}}
+              {{if haspermission .UserInfo.Id "section:list"}}<li><a href="/section/list">版块管理</a></li>{{end}}
               <li><a href="/logout">退出</a></li>
             </ul>
           </li>
